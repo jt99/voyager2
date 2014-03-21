@@ -41,6 +41,7 @@ var EmployeeView = function(adapter, template, employee) {
     phoneNumbers[1] = new ContactField('mobile', employee.cellPhone, true);
     contact.phoneNumbers = phoneNumbers;
     contact.save();
+    alert('Contact has been added');    
     return false;
 	};	
 	
