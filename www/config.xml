@@ -13,11 +13,8 @@
     <preference name="DisallowOverscroll" value="true" />
     <!-- set phonegap preferences -->    
     <preference name="phonegap-version" value="3.0.0" />
-    <!-- include plugins -->
-    <gap:plugin name="org.apache.cordova.core.console" />    
     <gap:plugin name="org.apache.cordova.core.camera" />
-    <gap:plugin name="org.apache.cordova.core.contacts" />
-    <gap:plugin name="org.apache.cordova.core.device" />        
+    <gap:plugin name="org.apache.cordova.core.contacts" />           
 	 <gap:plugin name="org.apache.cordova.core.geolocation" />
 	 <gap:plugin name="org.apache.cordova.core.dialogs" />
 </widget>
