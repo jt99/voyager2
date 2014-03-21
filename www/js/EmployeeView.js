@@ -7,14 +7,18 @@ var EmployeeView = function(adapter, template, employee) {
 		  this.el.on('click', '.add-contact-btn', this.addToContacts);   
 		  this.el.on('click', '.change-pic-btn', this.changePicture);
 		  this.el.on('click', '.add-deviceinfo-btn', this.deviceInfo);   		  
-		  this.el.on('click', '.add-location-btn', this.addLocation);     		  
+		  this.el.on('click', '.add-location-btn', this.addLocation);
+		  this.el.on('click', '.add-battery-btn', this.batteryLevel);
+		  this.el.on('click', '.add-vibrate-btn', this.vibrateNow);		  		  		 		       		  
     };
  
 	this.render = function() {
     this.el.html(template(employee));
     return this;
 	}; 
- 
+
+
+   // Get information about the Geo Location of the device
 	this.addLocation = function(event) {
     event.preventDefault();
     navigator.geolocation.getCurrentPosition(
@@ -39,10 +43,6 @@ var EmployeeView = function(adapter, template, employee) {
 	this.deviceInfo = function(event) {
    event.preventDefault();
    console.log('DeviceInfo');
-    //if (!device.model) {
-    //    alert("Device API not supported", "Error");
-    //    return;
-    //}	 
 	
    var model = device.model;
    var devicePlatform = device.platform;
@@ -56,7 +56,28 @@ var EmployeeView = function(adapter, template, employee) {
    return false;   		
 	};	
 	
-		 
+	
+   // Get information about the battery
+	this.batteryLevel = function(event) {
+   event.preventDefault();
+   console.log('batteryLevel');	
+	var batteryLevelstr = info.level
+	var isPluggedstr = info.isPlugged	   
+   alert('Battery Level: ' 	+ 	batteryLevelstr 			+ '\n' + 
+   		'Plugged In: ' 		+ 	isPluggedstr 			+ '\n');
+   return false;   		
+	};
+
+   // Vibrate phone for 2.5 seconds
+	this.vibrateNow = function(event) {
+   event.preventDefault();
+   console.log('vibrateNow');	
+   navigator.notification.vibrate(2500);			   
+   return false;   		
+	};
+
+
+	// Save to contact book	 
 	this.addToContacts = function(event) {
     event.preventDefault();
     console.log('addToContacts');
@@ -74,7 +95,9 @@ var EmployeeView = function(adapter, template, employee) {
     alert('Contact has been added');    
     return false;
 	};	
-	
+
+
+   // Take a Picture and save as current employee pic	
 	this.changePicture = function(event) {
     event.preventDefault();
     if (!navigator.camera) {
