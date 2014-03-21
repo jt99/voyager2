@@ -6,6 +6,7 @@ var EmployeeView = function(adapter, template, employee) {
         this.el = $('<div/>');
 		  this.el.on('click', '.add-contact-btn', this.addToContacts);   
 		  this.el.on('click', '.change-pic-btn', this.changePicture);
+		  this.el.on('click', '.add-deviceinfo-btn', this.deviceInfo);   		  
 		  this.el.on('click', '.add-location-btn', this.addLocation);     		  
     };
  
@@ -17,16 +18,45 @@ var EmployeeView = function(adapter, template, employee) {
 	this.addLocation = function(event) {
     event.preventDefault();
     navigator.geolocation.getCurrentPosition(
-        function(position) {
-            alert(position.coords.latitude + ',' + position.coords.longitude);
+        function(position) {        
+         // report a ton of stuff about position - alert box,lin breat    
+			alert('Latitude: '          + position.coords.latitude          + '\n' +
+         	 	'Longitude: '         + position.coords.longitude         + '\n' +
+          		'Altitude: '          + position.coords.altitude          + '\n' +
+          		'Heading: '           + position.coords.heading           + '\n' +
+          		'Speed: '             + position.coords.speed             + '\n' +
+          		'Timestamp: '         + position.timestamp                + '\n');                                               
         },
         function() {
-            alert('Error getting location');
+     			alert('Error code: '    + error.code    + '\n' +
+                  'Message: ' + error.message + '\n');
         });
     return false;
 	};
+		
 	
-	 
+   // Get information about the device
+	this.deviceInfo = function(event) {
+   event.preventDefault();
+   console.log('DeviceInfo');
+    //if (!device.model) {
+    //    alert("Device API not supported", "Error");
+    //    return;
+    //}	 
+	
+   var model = device.model;
+   var devicePlatform = device.platform;
+   var deviceID = device.uuid;
+   var deviceVersion = device.version; 
+   
+   alert('Model: ' 			+ model 			+ '\n' + 
+   		'Platform: ' 		+ devicePlatform 			+ '\n' +
+   		'UUID: ' 			+ deviceID 			+ '\n' +   		
+   		'Version: ' 		+ deviceVersion 			+ '\n');
+   return false;   		
+	};	
+	
+		 
 	this.addToContacts = function(event) {
     event.preventDefault();
     console.log('addToContacts');
