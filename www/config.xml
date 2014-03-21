@@ -11,9 +11,5 @@
     <access origin="*" />
     <!-- set to prevent iOS from scrolling header -->
     <preference name="DisallowOverscroll" value="true" />    
-
-	<plugin name="Camera" value="org.apache.cordova.CameraLauncher" />
-	<feature name="http://api.phonegap.com/1.0/camera"/>
-	<feature name="http://api.phonegap.com/1.0/file"/> 
         
 </widget>
