@@ -30,10 +30,10 @@ var EmployeeView = function(adapter, template, employee) {
 	this.addToContacts = function(event) {
     event.preventDefault();
     console.log('addToContacts');
-    if (!navigator.contacts) {
-        alert("Contacts API not supported", "Error");
-        return;
-    }
+    //if (!navigator.contacts) {
+    //    alert("Contacts API not supported", "Error");
+    //    return;
+    //}
     var contact = navigator.contacts.create();
     contact.name = {givenName: employee.firstName, familyName: employee.lastName};
     var phoneNumbers = [];
@@ -46,10 +46,10 @@ var EmployeeView = function(adapter, template, employee) {
 	
 	this.changePicture = function(event) {
     event.preventDefault();
-    if (!navigator.camera) {
-        alert("Camera API not supported", "Error");
-        return;
-    }
+    //if (!navigator.camera) {
+    //    alert("Camera API not supported", "Error");
+    //    return;
+    //}
     var options =   {   quality: 50,
                         destinationType: Camera.DestinationType.DATA_URL,
                         sourceType: 1,      // 0:Photo Library, 1=Camera, 2=Saved Album
