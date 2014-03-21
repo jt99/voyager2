@@ -1,5 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.jaytorian.voyager" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.jaytorian.voyager" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+
     <name>Voyager2</name>
     <description>
         A basic employee directory - experimental application
@@ -17,5 +18,7 @@
     <gap:plugin name="org.apache.cordova.device" />
     <gap:plugin name="org.apache.cordova.geolocation" />
     <gap:plugin name="org.apache.cordova.contacts" />               
-	 <gap:plugin name="org.apache.cordova.geolocation" />	 
+	 <gap:plugin name="org.apache.cordova.geolocation" />
+	 <gap:plugin name="org.apache.cordova.dialogs" />	 
+	 <gap:plugin name="org.apache.cordova.console" />	 	 	 	 
 </widget>
