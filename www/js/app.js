@@ -45,7 +45,7 @@
         	return;
     }
     var match = hash.match(detailsURL);
-    if (math) {
+    if (match) {
         adapter.findById(Number(match[1])).done(function(employee) {
          slider.slidePage(new EmployeeView(adapter, employeeTpl, employee).render().el);
         });
