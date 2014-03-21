@@ -12,7 +12,7 @@
     <!-- set to prevent iOS from scrolling header -->
     <preference name="DisallowOverscroll" value="true" />
     <!-- set phonegap preferences -->    
-    <preference name="phonegap-version" value="3.4.0" />
+    <preference name="phonegap-version" value="3.0.0" />
     <!-- include plugins -->
     <gap:plugin name="org.apache.cordova.core.console" />    
     <gap:plugin name="org.apache.cordova.core.camera" />
