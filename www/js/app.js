@@ -29,7 +29,7 @@
                 navigator.notification.alert(
                     message,    // message
                     null,       // callback
-                    "Workshop", // title
+                    "Employee Directory", // title
                     'OK'        // buttonName
                 );
             };
