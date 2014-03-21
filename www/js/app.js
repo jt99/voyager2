@@ -6,9 +6,11 @@
     var homeTpl = Handlebars.compile($("#home-tpl").html());
     var employeeLiTpl = Handlebars.compile($("#employee-li-tpl").html());
     var employeeTpl = Handlebars.compile($("#employee-tpl").html());
-	 var detailsURL = /^#employees\/(\d{1,})/;  
-	 var slider = new PageSlider($('body')); 
-    
+
+    var detailsURL = /^#employees\/(\d{1,})/;
+
+    var slider = new PageSlider($('body'));
+
     var adapter = new MemoryAdapter();
     // after initialization pass elements plus data  
 	 adapter.initialize().done(function () {
@@ -16,10 +18,6 @@
 	 });
 
     /* --------------------------------- Event Registration -------------------------------- */
-    $('.help-btn').on('click', function() {
-        alert("Some help here...")
-    });
-    
     $(window).on('hashchange', route);
 
     document.addEventListener('deviceready', function () {
@@ -41,17 +39,17 @@
     /* ---------------------------------- Local Functions ---------------------------------- */
 	 // Route View
 	 function route() {
-    var hash = window.location.hash;
-    if (!hash) {    	
-			slider.slidePage(new HomeView(adapter, homeTpl, employeeLiTpl).render().el); 			   	    	        
-        return;
+     var hash = window.location.hash;
+     if (!hash) {   
+			slider.slidePage(new HomeView(adapter, homeTpl, employeeLiTpl).render().el);    	    	        
+        	return;
     }
     var match = hash.match(detailsURL);
-    if (match) {
+    if (math) {
         adapter.findById(Number(match[1])).done(function(employee) {
          slider.slidePage(new EmployeeView(adapter, employeeTpl, employee).render().el);
         });
     }
-	}
+}
 
 }());
